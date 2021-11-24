@@ -1,0 +1,51 @@
+<?php
+session_start();
+if(!isset($_SESSION['id'])){
+    header("Location: ../../");
+}else{
+    require_once("../conn.php");
+    $peticion = mysqli_query($veja, "SELECT * FROM coberturas_sociales WHERE id = '".$_POST['id']."'");
+    while($p = mysqli_fetch_assoc($peticion)){
+        echo $p['id']."|".
+        $p['codigo']."|".
+        $p['cobertura_social']."|".
+        $p['plus']."|".
+        $p['tipo']."|".
+        $p['modulada']."|".
+        $p['telefono']."|".
+        $p['celular']."|".
+        $p['email']."|".
+        $p['cupo_por_dia']."|".
+        $p['domicilio']."|".
+        $p['localidad']."|".
+        $p['codigo_postal']."|".
+        $p['provincia']."|".
+        $p['descripcion']."|".
+        $p['long_barra']."|".
+        $p['categoria_iva']."|".
+        $p['cuit']."|".
+        $p['ingresos_brutos']."|".
+        $p['val_con']."|".
+        $p['gal_qui']."|".
+        $p['gal_pra']."|".
+        $p['gas_pens']."|".
+        $p['gto_quir']."|".
+        $p['gto_radi']."|".
+        $p['paga_categoria']."|".
+        $p['aumento_en_liq']."|".
+        $p['porcentaje_gral']."|".
+        $p['porcentaje_hon']."|".
+        $p['porcentaje_gtos']."|".
+        $p['porcentaje_n1']."|".
+        $p['porcentaje_n2']."|".
+        $p['porcentaje_n3']."|".
+        $p['modelo_generacion_txt']."|".
+        $p['long_orden']."|".
+        $p['long_n_afiliado']."|".
+        $p['alerta_secretarias_cirugia']."|".
+        $p['alerta']."|".
+        $p['activo'];
+    }
+    mysqli_close($veja);
+}
+?>

@@ -1,0 +1,778 @@
+@font-face {
+  font-family: "veja-L";
+  src: url("../fonts/NexaLight_0.otf");
+}
+
+@font-face {
+  font-family: "veja-B";
+  src: url("../fonts/NexaBold_0.otf");
+}
+
+body {
+  font-family: "veja-L";
+  margin: 0;
+  padding: 0;
+  background: rgba(70, 130, 180, 0.3);
+  height: 100%;
+}
+
+.header {
+  z-index: 2;
+  position: fixed;
+  background: steelblue;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  height: 70px;
+}
+
+.header img {
+  width: 40px;
+  max-height: 45px;
+  border: 2px solid aliceblue;
+  border-radius: 5px;
+}
+
+.header .usuario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.header .usuario .contenedorMensajes {
+  position: relative;
+  margin-right: 55px;
+}
+
+.header .usuario .contenedorMensajes i {
+  font-size: 20px;
+  margin-top: 10px;
+  color: aliceblue;
+}
+
+.header .usuario .contenedorMensajes span {
+  position: absolute;
+  top: 0;
+}
+
+.header .usuario .user-sign {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+}
+
+.header .usuario .user-sign small,
+.header .usuario .user-sign a {
+  color: aliceblue;
+}
+
+.header .usuario .user-sign a {
+  font-weight: bold;
+}
+
+.header .fa-hospital-alt {
+  color: aliceblue;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.header .fa-hospital-alt:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
+.header #veja_moreno {
+  font-weight: bold;
+  font-size: 25px;
+  color: aliceblue;
+}
+
+.modal .modal-header {
+  background: steelblue;
+  color: aliceblue;
+}
+
+.modal .modalEditar-header {
+  background-color: #ffc107;
+}
+
+#datosConsulta input,
+#datosConsulta select {
+  font-size: 14px;
+}
+
+#datosConsulta .contenedorImagenMedico {
+  position: relative;
+}
+
+#datosConsulta .contenedorImagenMedico #ABMBotonCambiarImagenMedico {
+  display: none;
+}
+
+#datosConsulta .contenedorImagenMedico:hover #ABMBotonCambiarImagenMedico {
+  border: 2px solid steelblue;
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 105px;
+  display: block;
+  background: rgba(240, 248, 255, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+#datosConsulta .contenedorImagenMedico:hover #ABMImagenMedico {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.table th,
+.table td {
+  padding: 0;
+  vertical-align: middle;
+}
+
+.tabla-pmo td,
+.tabla-coberturasMedicas td,
+.tabla-cobros td,
+.tabla-pacientes td,
+.tabla-convenioPrestaciones td,
+.tabla-consultaCodigos td {
+  font-size: 12px;
+}
+
+#tabla-nomenclador tr,
+#tabla-pmo tr,
+#tabla-convenios tr,
+#tabla-formas-de-pago tr,
+#tabla-pacientes tr,
+#tabla-proveedores tr,
+#tabla-convenioPrestaciones tr,
+#tabla-coberturasMedicas tr,
+#tabla-consultaCodigos tr {
+  line-height: 0px;
+}
+
+#tabla-nomenclador tr .form-check-input,
+#tabla-pmo tr .form-check-input,
+#tabla-convenios tr .form-check-input,
+#tabla-formas-de-pago tr .form-check-input,
+#tabla-pacientes tr .form-check-input,
+#tabla-proveedores tr .form-check-input,
+#tabla-convenioPrestaciones tr .form-check-input,
+#tabla-coberturasMedicas tr .form-check-input,
+#tabla-consultaCodigos tr .form-check-input {
+  margin-top: -7px;
+}
+
+#tabla-pmo #filaPrestacionPMO td {
+  padding-top: 11px;
+}
+
+#tabla-coberturasMedicas_wrapper .table .dataTable thead th,
+#tabla-formas-de-pago_wrapper .table .dataTable thead th,
+#tabla-pacientes_wrapper .table .dataTable thead th {
+  padding-top: 11px;
+}
+
+#tabla-ingresos tbody tr td,
+#tabla-egresos tbody tr td,
+#tabla-completar-comprobante tbody tr td {
+  font-size: 13px;
+  padding: 2px 18px;
+}
+
+#tabla-convenioPrestaciones tr td {
+  padding: 0;
+}
+
+#tabla-convenioPrestaciones tr td input {
+  font-size: 12px;
+  width: 90px;
+  margin: 0;
+  border: none;
+}
+
+#formularioCobrarTurno input,
+#formularioCobrarTurno select,
+#modalAgregarCoberturaSocial input,
+#modalAgregarCoberturaSocial select,
+#modalEditarCoberturaSocial input,
+#modalEditarCoberturaSocial select,
+#modalVerCoberturaSocial input,
+#modalVerCoberturaSocial select,
+#modalConsultaCodigos input,
+#modalConsultaCodigos select {
+  font-size: 11px;
+}
+
+#formularioCobrarTurno #modalCobrarTurnoTotalACobrar {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20px;
+}
+
+#modalConsultaCodigos .col,
+#modalNuevaPrestacion .col,
+#modalVerPrestacion .col,
+#modalNuevaCobertura .col,
+#modalAgregarCoberturaSocial .col,
+#modalEditarCoberturaSocial .col,
+#modalVerCoberturaSocial .col,
+#modalEditarPrestacion .col {
+  padding-right: 0;
+}
+
+.content {
+  margin-top: 55px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.content .card {
+  height: 100%;
+  bottom: -15px;
+}
+
+.content .card .card-body {
+  height: 100%;
+}
+
+.content #agregarTurno select,
+.content #agregarTurno input {
+  background: rgba(128, 128, 128, 0.05);
+  -webkit-box-shadow: 0x 0px 3px grey;
+          box-shadow: 0x 0px 3px grey;
+}
+
+.content #agregarTurno #nuevoTurnoMedicoMatricula {
+  padding: 0;
+  text-align: center;
+}
+
+.content #agregarTurno #nuevoTurnoMedicoNombre {
+  padding: 0px 0px 0px 5px;
+}
+
+.content #turnosReservados select,
+.content #turnosReservados input {
+  background: rgba(128, 128, 128, 0.05);
+  -webkit-box-shadow: 0px 0px 3px grey;
+          box-shadow: 0px 0px 3px grey;
+}
+
+.content #turnosReservados table thead tr {
+  line-height: 1px;
+  color: aliceblue;
+  font-size: 12px;
+}
+
+.content #turnosReservados table thead tr th span {
+  display: block;
+}
+
+.content #turnosReservados table tbody td .form-check {
+  padding-bottom: 24px;
+}
+
+.content #menuGeneral {
+  padding: 25px;
+}
+
+.content #menuGeneral .categoria i {
+  width: 150px;
+  height: 150px;
+  color: aliceblue;
+  background: steelblue;
+  line-height: 140px;
+  border-radius: 15px;
+  font-size: 110px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.content #menuGeneral .categoria i:hover {
+  -webkit-transform: scale(1.08, 1.08);
+          transform: scale(1.08, 1.08);
+  -webkit-box-shadow: 0px 0px 30px black;
+          box-shadow: 0px 0px 30px black;
+  border-radius: 30px;
+}
+
+.content #seccionPrincipal,
+.content #seccionAdministracion,
+.content #seccionABMMedicos,
+.content #seccionStock,
+.content #seccionFacturacion,
+.content #seccionTesoreria,
+.content #contenedorCategoriaConfiguracionGeneral {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.content #seccionABMMedicos nav,
+.content #seccionPrincipal nav,
+.content #seccionAdministracion nav,
+.content #seccionStock nav,
+.content #seccionFacturacion nav,
+.content #contenedorCategoriaConfiguracionGeneral nav {
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.content #seccionABMMedicos nav .navbar-brand,
+.content #seccionPrincipal nav .navbar-brand,
+.content #seccionAdministracion nav .navbar-brand,
+.content #seccionStock nav .navbar-brand,
+.content #seccionFacturacion nav .navbar-brand,
+.content #contenedorCategoriaConfiguracionGeneral nav .navbar-brand {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #294d6b;
+}
+
+.content #seccionABMMedicos nav i,
+.content #seccionPrincipal nav i,
+.content #seccionAdministracion nav i,
+.content #seccionStock nav i,
+.content #seccionFacturacion nav i,
+.content #contenedorCategoriaConfiguracionGeneral nav i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.content #seccionABMMedicos #calendario,
+.content #seccionPrincipal #calendario,
+.content #seccionAdministracion #calendario,
+.content #seccionStock #calendario,
+.content #seccionFacturacion #calendario,
+.content #contenedorCategoriaConfiguracionGeneral #calendario {
+  position: relative;
+  z-index: 1;
+}
+
+.content #seccionABMMedicos #calendario button,
+.content #seccionPrincipal #calendario button,
+.content #seccionAdministracion #calendario button,
+.content #seccionStock #calendario button,
+.content #seccionFacturacion #calendario button,
+.content #contenedorCategoriaConfiguracionGeneral #calendario button {
+  padding: 3px;
+}
+
+.content #seccionABMMedicos #calendario .fc-highlight,
+.content #seccionPrincipal #calendario .fc-highlight,
+.content #seccionAdministracion #calendario .fc-highlight,
+.content #seccionStock #calendario .fc-highlight,
+.content #seccionFacturacion #calendario .fc-highlight,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-highlight {
+  background-color: rgba(56, 103, 143, 0.5);
+}
+
+.content #seccionABMMedicos #calendario .fc-daygrid-day-events,
+.content #seccionABMMedicos #calendario .fc-list-event-dot,
+.content #seccionPrincipal #calendario .fc-daygrid-day-events,
+.content #seccionPrincipal #calendario .fc-list-event-dot,
+.content #seccionAdministracion #calendario .fc-daygrid-day-events,
+.content #seccionAdministracion #calendario .fc-list-event-dot,
+.content #seccionStock #calendario .fc-daygrid-day-events,
+.content #seccionStock #calendario .fc-list-event-dot,
+.content #seccionFacturacion #calendario .fc-daygrid-day-events,
+.content #seccionFacturacion #calendario .fc-list-event-dot,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-daygrid-day-events,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-list-event-dot {
+  display: none;
+}
+
+.content #seccionABMMedicos #calendario td,
+.content #seccionPrincipal #calendario td,
+.content #seccionAdministracion #calendario td,
+.content #seccionStock #calendario td,
+.content #seccionFacturacion #calendario td,
+.content #contenedorCategoriaConfiguracionGeneral #calendario td {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.content #seccionABMMedicos #calendario .fc-event-title,
+.content #seccionPrincipal #calendario .fc-event-title,
+.content #seccionAdministracion #calendario .fc-event-title,
+.content #seccionStock #calendario .fc-event-title,
+.content #seccionFacturacion #calendario .fc-event-title,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event-title {
+  font-size: 9px;
+  font-style: normal;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  color: black;
+  margin: 0;
+}
+
+.content #seccionABMMedicos #calendario .fc-daygrid-day-number,
+.content #seccionPrincipal #calendario .fc-daygrid-day-number,
+.content #seccionAdministracion #calendario .fc-daygrid-day-number,
+.content #seccionStock #calendario .fc-daygrid-day-number,
+.content #seccionFacturacion #calendario .fc-daygrid-day-number,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-daygrid-day-number {
+  color: black;
+}
+
+.content #seccionABMMedicos #calendario .fc-bg-event,
+.content #seccionABMMedicos #calendario .fc-event,
+.content #seccionABMMedicos #calendario .fc-event-start,
+.content #seccionABMMedicos #calendario .fc-event-end,
+.content #seccionABMMedicos #calendario .fc-event-today,
+.content #seccionPrincipal #calendario .fc-bg-event,
+.content #seccionPrincipal #calendario .fc-event,
+.content #seccionPrincipal #calendario .fc-event-start,
+.content #seccionPrincipal #calendario .fc-event-end,
+.content #seccionPrincipal #calendario .fc-event-today,
+.content #seccionAdministracion #calendario .fc-bg-event,
+.content #seccionAdministracion #calendario .fc-event,
+.content #seccionAdministracion #calendario .fc-event-start,
+.content #seccionAdministracion #calendario .fc-event-end,
+.content #seccionAdministracion #calendario .fc-event-today,
+.content #seccionStock #calendario .fc-bg-event,
+.content #seccionStock #calendario .fc-event,
+.content #seccionStock #calendario .fc-event-start,
+.content #seccionStock #calendario .fc-event-end,
+.content #seccionStock #calendario .fc-event-today,
+.content #seccionFacturacion #calendario .fc-bg-event,
+.content #seccionFacturacion #calendario .fc-event,
+.content #seccionFacturacion #calendario .fc-event-start,
+.content #seccionFacturacion #calendario .fc-event-end,
+.content #seccionFacturacion #calendario .fc-event-today,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-bg-event,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event-start,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event-end,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event-today {
+  opacity: 1;
+}
+
+.content #seccionABMMedicos #calendario .fc-non-business,
+.content #seccionPrincipal #calendario .fc-non-business,
+.content #seccionAdministracion #calendario .fc-non-business,
+.content #seccionStock #calendario .fc-non-business,
+.content #seccionFacturacion #calendario .fc-non-business,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-non-business {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.content #seccionABMMedicos #calendario .fc-scrollgrid-sync-inner,
+.content #seccionPrincipal #calendario .fc-scrollgrid-sync-inner,
+.content #seccionAdministracion #calendario .fc-scrollgrid-sync-inner,
+.content #seccionStock #calendario .fc-scrollgrid-sync-inner,
+.content #seccionFacturacion #calendario .fc-scrollgrid-sync-inner,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-scrollgrid-sync-inner {
+  background-color: #233140;
+}
+
+.content #seccionABMMedicos #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.content #seccionPrincipal #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.content #seccionAdministracion #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.content #seccionStock #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.content #seccionFacturacion #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-scrollgrid-sync-inner .fc-col-header-cell-cushion {
+  color: aliceblue;
+  font-size: 10px;
+}
+
+.content #seccionABMMedicos #calendario .fc-daygrid-day-frame,
+.content #seccionPrincipal #calendario .fc-daygrid-day-frame,
+.content #seccionAdministracion #calendario .fc-daygrid-day-frame,
+.content #seccionStock #calendario .fc-daygrid-day-frame,
+.content #seccionFacturacion #calendario .fc-daygrid-day-frame,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-daygrid-day-frame {
+  background-color: #fff;
+}
+
+.content #seccionABMMedicos #calendario .fc-day-today,
+.content #seccionPrincipal #calendario .fc-day-today,
+.content #seccionAdministracion #calendario .fc-day-today,
+.content #seccionStock #calendario .fc-day-today,
+.content #seccionFacturacion #calendario .fc-day-today,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-day-today {
+  background-color: #315a7d;
+  padding: 2px;
+}
+
+.content #seccionABMMedicos #calendario .fc-event-end,
+.content #seccionPrincipal #calendario .fc-event-end,
+.content #seccionAdministracion #calendario .fc-event-end,
+.content #seccionStock #calendario .fc-event-end,
+.content #seccionFacturacion #calendario .fc-event-end,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-event-end {
+  background: rgba(255, 159, 137, 0.3);
+}
+
+.content #seccionABMMedicos #calendario .fc-toolbar-chunk .fc-toolbar-title,
+.content #seccionPrincipal #calendario .fc-toolbar-chunk .fc-toolbar-title,
+.content #seccionAdministracion #calendario .fc-toolbar-chunk .fc-toolbar-title,
+.content #seccionStock #calendario .fc-toolbar-chunk .fc-toolbar-title,
+.content #seccionFacturacion #calendario .fc-toolbar-chunk .fc-toolbar-title,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-toolbar-chunk .fc-toolbar-title {
+  font-size: 15px;
+}
+
+.content #seccionABMMedicos #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter,
+.content #seccionPrincipal #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter,
+.content #seccionAdministracion #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter,
+.content #seccionStock #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter,
+.content #seccionFacturacion #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-toolbar-chunk .fc-toolbar-title::first-letter {
+  text-transform: uppercase;
+}
+
+.content #seccionABMMedicos #calendario .fc-header-toolbar,
+.content #seccionPrincipal #calendario .fc-header-toolbar,
+.content #seccionAdministracion #calendario .fc-header-toolbar,
+.content #seccionStock #calendario .fc-header-toolbar,
+.content #seccionFacturacion #calendario .fc-header-toolbar,
+.content #contenedorCategoriaConfiguracionGeneral #calendario .fc-header-toolbar {
+  font-size: 0.7rem;
+}
+
+.content #contenedorCategoriaPrincipal,
+.content #contenedorCategoriaRecepcion,
+.content #contenedorCategoriaFacturacion,
+.content #contenedorCategoriaStock,
+.content #contenedorCategoriaTesoreria,
+.content #contenedorCategoriaConfiguracionGeneral {
+  min-height: 100vh;
+  bottom: 0;
+}
+
+.content #contenedorCategoriaPrincipal #resultadoPacientes,
+.content #contenedorCategoriaRecepcion #resultadoPacientes,
+.content #contenedorCategoriaFacturacion #resultadoPacientes,
+.content #contenedorCategoriaStock #resultadoPacientes,
+.content #contenedorCategoriaTesoreria #resultadoPacientes,
+.content #contenedorCategoriaConfiguracionGeneral #resultadoPacientes {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  left: 15px;
+}
+
+.content #contenedorCategoriaPrincipal .posRelativa,
+.content #contenedorCategoriaRecepcion .posRelativa,
+.content #contenedorCategoriaFacturacion .posRelativa,
+.content #contenedorCategoriaStock .posRelativa,
+.content #contenedorCategoriaTesoreria .posRelativa,
+.content #contenedorCategoriaConfiguracionGeneral .posRelativa {
+  position: relative;
+  height: 400px;
+}
+
+.content #contenedorCategoriaPrincipal .posRelativa .ajustarCentro,
+.content #contenedorCategoriaRecepcion .posRelativa .ajustarCentro,
+.content #contenedorCategoriaFacturacion .posRelativa .ajustarCentro,
+.content #contenedorCategoriaStock .posRelativa .ajustarCentro,
+.content #contenedorCategoriaTesoreria .posRelativa .ajustarCentro,
+.content #contenedorCategoriaConfiguracionGeneral .posRelativa .ajustarCentro {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.content .medicosCargados .contenedorImg {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+}
+
+.content .medicosCargados .contenedorImg img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+}
+
+.borde-input {
+  border: 2px solid rgba(121, 177, 232, 0.68);
+}
+
+.borde-input-danger {
+  border: 2px solid rgba(255, 99, 71, 0.68);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0;
+}
+
+.dataTables_filter input {
+  width: 450px;
+}
+
+.dataTables_empty {
+  line-height: 13px;
+}
+
+.ajustarCard {
+  height: 100%;
+}
+
+.oscilar {
+  -webkit-animation: oscilar 0.2s infinite alternate;
+          animation: oscilar 0.2s infinite alternate;
+}
+
+.rotar {
+  -webkit-animation: girar 1.5s infinite linear;
+          animation: girar 1.5s infinite linear;
+}
+
+.consulta {
+  background-color: #c9e9f6;
+}
+
+.estudio {
+  background-color: #ffb58a;
+}
+
+.cirugia {
+  background-color: #ffffa0;
+}
+
+.urgencia {
+  background-color: #ff3333;
+  color: aliceblue;
+  font-weight: bold;
+  -webkit-animation: intermitentFade 0.3s infinite alternate;
+          animation: intermitentFade 0.3s infinite alternate;
+}
+
+.bg-rojoClaro {
+  background: #fdd1d6;
+}
+
+.filaSeleccionada {
+  background-color: rgba(0, 128, 128, 0.2) !important;
+}
+
+.efecto-hover {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.efecto-hover:hover {
+  text-shadow: 0px 0px 3px #000;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+}
+
+@-webkit-keyframes intermitentFade {
+  from {
+    background-color: #ff3333;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+@keyframes intermitentFade {
+  from {
+    background-color: #ff3333;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+@-webkit-keyframes girar {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes girar {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes oscilar {
+  from {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  to {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes oscilar {
+  from {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  to {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+#usuariosConectados {
+  margin-top: 5px;
+}
+
+#usuariosConectados .usuarios {
+  text-align: center;
+}
+
+#usuariosConectados .usuarios .usuario {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#usuariosConectados .usuarios .usuario .usuarioInicial {
+  color: aliceblue;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: steelblue;
+  border-radius: 50%;
+  line-height: 35px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=style.css.map */

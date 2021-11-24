@@ -1,0 +1,585 @@
+$theme-color: steelblue;
+$font-theme-color: aliceblue;
+$modalEditar-header: #ffc107;
+$color-estudio: #ffb58a;
+$color-consulta: lighten(skyblue, 15);
+$color-cirugia: lighten(rgb(255, 255, 109), 10);
+$color-urgencia: lighten(rgb(255, 0, 0), 10);
+$color-dias: #fff;
+$color-encabezadoCalendario: darken(#2c3e50, 5);
+$color-filaSeleccionada: rgba(teal, 0.2);
+// $color-weekend: transparent;
+$color-weekend: rgba(gray, 0.5);
+
+@font-face {
+	font-family: "veja-L";
+	src: url("../fonts/NexaLight_0.otf");
+}
+
+@font-face {
+	font-family: "veja-B";
+	src: url("../fonts/NexaBold_0.otf");
+}
+
+body {
+	font-family: "veja-L";
+	margin: 0;
+	padding: 0;
+	background: rgba($theme-color, 0.3);
+	height: 100%;
+}
+
+.header {
+	z-index: 2;
+	position: fixed;
+	background: $theme-color;
+	padding: 20px;
+	width: 100%;
+	top: 0;
+	height: 70px;
+	img {
+		width: 40px;
+		max-height: 45px;
+		border: 2px solid aliceblue;
+		border-radius: 5px;
+	}
+	.usuario {
+		display: flex;
+		flex-direction: row-reverse;
+		.contenedorMensajes {
+			position: relative;
+			margin-right: 55px;
+			i {
+				font-size: 20px;
+				margin-top: 10px;
+				color: aliceblue;
+			}
+			span {
+				position: absolute;
+				top: 0;
+			}
+		}
+		.user-sign {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+			small,
+			a {
+				color: aliceblue;
+			}
+			a {
+				font-weight: bold;
+			}
+		}
+	}
+	.fa-hospital-alt {
+		color: $font-theme-color;
+		transition: all 0.3s ease;
+		&:hover {
+			transform: scale(1.1, 1.1);
+		}
+	}
+	#veja_moreno {
+		font-weight: bold;
+		font-size: 25px;
+		color: $font-theme-color;
+	}
+}
+
+.modal {
+	.modal-header {
+		background: $theme-color;
+		color: $font-theme-color;
+	}
+	.modalEditar-header {
+		background-color: $modalEditar-header;
+	}
+}
+
+#datosConsulta {
+	input,
+	select {
+		font-size: 14px;
+	}
+	.contenedorImagenMedico {
+		position: relative;
+		#ABMBotonCambiarImagenMedico {
+			display: none;
+		}
+		&:hover {
+			#ABMBotonCambiarImagenMedico {
+				border: 2px solid steelblue;
+				position: absolute;
+				top: calc(50% - 20px);
+				left: 105px;
+				display: block;
+				background: rgba(aliceblue, 0.5);
+				border-radius: 50%;
+				padding: 10px;
+			}
+			#ABMImagenMedico {
+				background: rgba(#000, 0.5);
+			}
+		}
+	}
+}
+
+.table th,
+.table td {
+	padding: 0;
+	vertical-align: middle;
+}
+
+.tabla-pmo,
+.tabla-coberturasMedicas,
+.tabla-cobros,
+.tabla-pacientes,
+.tabla-convenioPrestaciones,
+.tabla-consultaCodigos {
+	td {
+		font-size: 12px;
+	}
+}
+
+#tabla-nomenclador,
+#tabla-pmo,
+#tabla-convenios,
+#tabla-formas-de-pago,
+#tabla-pacientes,
+#tabla-proveedores,
+#tabla-convenioPrestaciones,
+#tabla-coberturasMedicas,
+#tabla-consultaCodigos {
+	tr {
+		line-height: 0px;
+		.form-check-input {
+			margin-top: -7px;
+		}
+	}
+}
+
+#tabla-pmo {
+	#filaPrestacionPMO {
+		td {
+			padding-top: 11px;
+		}
+	}
+}
+
+#tabla-coberturasMedicas_wrapper,
+#tabla-formas-de-pago_wrapper,
+#tabla-pacientes_wrapper {
+	.table .dataTable thead th {
+		padding-top: 11px;
+	}
+}
+
+#tabla-ingresos,
+#tabla-egresos,
+#tabla-completar-comprobante {
+	tbody {
+		tr {
+			td {
+				font-size: 13px;
+				padding: 2px 18px;
+			}
+		}
+	}
+}
+
+#tabla-convenioPrestaciones {
+	tr {
+		td {
+			padding: 0;
+			input {
+				font-size: 12px;
+				width: 90px;
+				margin: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+#formularioCobrarTurno,
+#modalAgregarCoberturaSocial,
+#modalEditarCoberturaSocial,
+#modalVerCoberturaSocial,
+#modalConsultaCodigos {
+	input,
+	select {
+		font-size: 11px;
+	}
+}
+
+#formularioCobrarTurno {
+	#modalCobrarTurnoTotalACobrar {
+		font-size: 50px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: -20px;
+	}
+}
+
+#modalConsultaCodigos,
+#modalNuevaPrestacion,
+#modalVerPrestacion,
+#modalNuevaCobertura,
+#modalAgregarCoberturaSocial,
+#modalEditarCoberturaSocial,
+#modalVerCoberturaSocial,
+#modalEditarPrestacion {
+	.col {
+		padding-right: 0;
+	}
+}
+
+.content {
+	margin-top: 55px;
+	transition: all 0.3s ease;
+	overflow: hidden;
+	.card {
+		// height: calc(100vh - 70px);
+		height: 100%;
+		bottom: -15px;
+		.card-body {
+			height: 100%;
+		}
+	}
+	#agregarTurno {
+		select,
+		input {
+			background: rgba(grey, 0.05);
+			box-shadow: 0x 0px 3px grey;
+		}
+		#nuevoTurnoMedicoMatricula {
+			padding: 0;
+			text-align: center;
+		}
+		#nuevoTurnoMedicoNombre {
+			padding: 0px 0px 0px 5px;
+		}
+	}
+	#turnosReservados {
+		select,
+		input {
+			background: rgba(grey, 0.05);
+			box-shadow: 0px 0px 3px grey;
+		}
+		table {
+			thead {
+				tr {
+					line-height: 1px;
+					color: $font-theme-color;
+					font-size: 12px;
+					th {
+						span {
+							display: block;
+						}
+					}
+				}
+			}
+			tbody {
+				td {
+					//padding: 0;
+					.form-check {
+						padding-bottom: 24px;
+					}
+				}
+			}
+		}
+	}
+	#menuGeneral {
+		padding: 25px;
+		.categoria {
+			i {
+				width: 150px;
+				height: 150px;
+				color: $font-theme-color;
+				background: $theme-color;
+				line-height: 140px;
+				border-radius: 15px;
+				font-size: 110px;
+				transition: all 0.3s ease;
+				&:hover {
+					transform: scale(1.08, 1.08);
+					box-shadow: 0px 0px 30px black;
+					border-radius: 30px;
+				}
+			}
+		}
+	}
+	#seccionPrincipal,
+	#seccionAdministracion,
+	#seccionABMMedicos,
+	#seccionStock,
+	#seccionFacturacion,
+	#seccionTesoreria,
+	#contenedorCategoriaConfiguracionGeneral {
+		position: relative;
+		margin-bottom: 15px;
+	}
+	#seccionABMMedicos,
+	#seccionPrincipal,
+	#seccionAdministracion,
+	#seccionStock,
+	#seccionFacturacion,
+	#contenedorCategoriaConfiguracionGeneral {
+		nav {
+			padding: 0;
+			margin-bottom: 15px;
+			.navbar-brand {
+				margin-bottom: 5px;
+				font-weight: bold;
+				color: darken($theme-color, 20);
+			}
+			i {
+				font-size: 20px;
+				margin-right: 5px;
+				//color: $theme-color;
+			}
+		}
+		// .card {
+		// 	padding: 0px 10px;
+		// }
+		#calendario {
+			position: relative;
+			z-index: 1;
+			button {
+				padding: 3px;
+			}
+			.fc-highlight {
+				background-color: rgba(darken($theme-color, 10), 0.5);
+			}
+			.fc-daygrid-day-events,
+			.fc-list-event-dot {
+				display: none;
+			}
+			td {
+				border: 1px solid rgba(#000, 0.4);
+			}
+			.fc-event-title {
+				font-size: 9px;
+				font-style: normal;
+				position: absolute;
+				bottom: 0;
+				left: 2px;
+				color: black;
+				margin: 0;
+			}
+			.fc-daygrid-day-number {
+				color: black;
+			}
+			.fc-bg-event,
+			.fc-event,
+			.fc-event-start,
+			.fc-event-end,
+			.fc-event-today {
+				opacity: 1;
+			}
+			.fc-non-business {
+				background-color: $color-weekend;
+				// opacity: 0;
+			}
+			.fc-scrollgrid-sync-inner {
+				background-color: $color-encabezadoCalendario;
+				.fc-col-header-cell-cushion {
+					color: $font-theme-color;
+					font-size: 10px;
+				}
+			}
+			.fc-daygrid-day-frame {
+				background-color: $color-dias;
+			}
+			.fc-day-today {
+				background-color: darken($theme-color, 15);
+				padding: 2px;
+			}
+			.fc-event-end {
+				background: rgba(#ff9f89, 0.3);
+			}
+			.fc-toolbar-chunk {
+				.fc-toolbar-title {
+					font-size: 15px;
+					&::first-letter {
+						text-transform: uppercase;
+					}
+				}
+			}
+			.fc-header-toolbar {
+				font-size: 0.7rem;
+			}
+		}
+	}
+	#contenedorCategoriaPrincipal,
+	#contenedorCategoriaRecepcion,
+	#contenedorCategoriaFacturacion,
+	#contenedorCategoriaStock,
+	#contenedorCategoriaTesoreria,
+	#contenedorCategoriaConfiguracionGeneral {
+		min-height: 100vh;
+		bottom: 0;
+		#resultadoPacientes {
+			position: absolute;
+			z-index: 2;
+			right: 15px;
+			left: 15px;
+		}
+		.posRelativa {
+			position: relative;
+			height: 400px;
+			.ajustarCentro {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+		}
+	}
+	.medicosCargados {
+		.contenedorImg {
+			width: 60px;
+			height: 60px;
+			overflow: hidden;
+			border-radius: 50%;
+			position: relative;
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.borde-input {
+	border: 2px solid rgba(121, 177, 232, 0.68);
+}
+
+.borde-input-danger {
+	border: 2px solid rgba(tomato, 0.68);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+	padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+	padding: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+	padding: 0;
+}
+
+.dataTables_filter {
+	input {
+		width: 450px;
+	}
+}
+
+.dataTables_empty {
+	line-height: 13px;
+}
+
+.ajustarCard {
+	height: 100%;
+}
+
+.oscilar {
+	animation: oscilar 0.2s infinite alternate;
+}
+
+.rotar {
+	animation: girar 1.5s infinite linear;
+}
+
+.consulta {
+	background-color: $color-consulta;
+}
+.estudio {
+	background-color: $color-estudio;
+}
+.cirugia {
+	background-color: $color-cirugia;
+}
+.urgencia {
+	background-color: $color-urgencia;
+	color: $font-theme-color;
+	font-weight: bold;
+	animation: intermitentFade 0.3s infinite alternate;
+}
+
+.bg-rojoClaro {
+	background: #fdd1d6;
+}
+
+.filaSeleccionada {
+	background-color: $color-filaSeleccionada !important;
+}
+
+.efecto-hover {
+	transition: all 0.3s ease;
+	&:hover {
+		text-shadow: 0px 0px 3px #000;
+		transition: all 0.3s ease;
+		transform: scale(1.05, 1.05);
+	}
+}
+
+@keyframes intermitentFade {
+	from {
+		background-color: $color-urgencia;
+	}
+	to {
+		background-color: darken($color-urgencia, 10);
+	}
+}
+
+@keyframes girar {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes oscilar {
+	from {
+		transform: rotate(-10deg);
+	}
+	to {
+		transform: rotate(10deg);
+	}
+}
+
+///////////////////////////////////STOCK///////////////////////////////////
+#usuariosConectados {
+	margin-top: 5px;
+	.usuarios {
+		text-align: center;
+		.usuario {
+			display: inline-block;
+			margin-right: 15px;
+			.usuarioInicial {
+				color: $font-theme-color;
+				display: block;
+				width: 30px;
+				height: 30px;
+				background: steelblue;
+				border-radius: 50%;
+				line-height: 35px;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+///////////////////////////////////FIN STOCK///////////////////////////////////

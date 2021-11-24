@@ -1,0 +1,43 @@
+<div id="contenedorRubros">
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h5>Rubros <i class="fas fa-plus-circle text-success" id="agregarRubro"></i></h5>
+				<div class="d-block d-sm-block d-md-none">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="search" class="form-control" placeholder="Buscar rubros" id="buscarRubrosMovil" />
+							</div>
+						</div>
+					</div>
+					<div id="rubrosEncontradosMovil"></div>
+					<ul class="list-group" id="resultadoRubrosMovil"></ul>
+				</div>
+				<div class="d-none d-sm-none d-md-block">
+					<div class="row">
+						<div class="col-md-9"></div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<input type="search" class="form-control" placeholder="Buscar rubros" id="buscarRubros" />
+							</div>
+						</div>
+					</div>
+					<div id="rubrosEncontrados"></div>
+					<table class="table table-hover table-striped">
+						<thead>
+							<tr>
+								<th class="align-middle text-left">Nombre</th>
+								<th class="align-middle text-left">Observación</th>
+								<th class="align-middle text-center">Permite dioptrías</th>
+								<th class="align-middle text-center">Estado</th>
+								<th class="align-middle text-center">Acción</th>
+							</tr>
+						</thead>
+						<tbody id="resultadoRubrosTabla"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

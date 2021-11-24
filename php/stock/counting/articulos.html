@@ -1,0 +1,31 @@
+<div id="contenedorExistencias">
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h5>Artículos <i role="button" class="fas fa-plus-circle text-success" id="agregarArticulo"></i></h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 mb-3">
+				<div class="d-block d-sm-block d-md-none">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<input type="search" class="form-control" placeholder="Buscar rubros" id="buscarExistenciasMovil" />
+							</div>
+						</div>
+					</div>
+					<div id="existenciasEncontradasMovil"></div>
+					<ul class="list-group" id="resultadoExistenciasMovil"></ul>
+				</div>
+				<div class="d-none d-sm-none d-md-block">
+					<div id="resultadoExistenciasTabla"></div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<h6>Artículos con menos de 20 unidades</h6>
+				<ul class="list-group-flush" id="notificacionRapida" style="padding-left: 0px"></ul>
+			</div>
+		</div>
+	</section>
+</div>
