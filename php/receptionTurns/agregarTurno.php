@@ -43,55 +43,94 @@ if(!isset($_SESSION['id'])){
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active mt-4" id="agregarTurno" role="tabpanel" aria-labelledby="agregarTurno-tab">
 
-                <div class="row">
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <small>Solicitante</small><br>
-                                    <input style="box-shadow: 0px 0px 3px grey;" type="text" id="modalAgregarDatosPacienteDNISolicitante" class="form-control">
-                                </div>
+            <div class="container" >
+                <div class="row">   
+                    <div class="col shadow" style="background-color: rgb(246, 246, 246); padding: 2rem; margin-right: 2rem; border-radius: 1.5rem;">
+                        <section class="paciente">
+                            <p><b>Buscar solicitante:</b><p>
+                            <div class="form-group">
+                                <p>DNI del solicitante:</p>
+                                <input style="box-shadow: 0px 0px 3px grey;" type="text" id="modalAgregarDatosPacienteDNISolicitante" class="form-control" placeholder="Ingrese DNI">
                             </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <small>Apellido Y Nombre</small><br>';
-                                    //echo '<input id="foo" type="text" class="form-control">';
-                                    echo '<input autocomplete="off" style="box-shadow: 0px 0px 3px grey;" type="text" id="modalAgregarDatosDelPacienteApyNom" class="form-control" placeholder="Apellido y nombre">
-                                    <div id="resultadoPacientes"></div>';
-                                echo '</div>
+                            <div class="form-group">
+                                <p>Apellido Y Nombre:</p>';
+                                //echo '<input id="foo" type="text" class="form-control">';
+                                echo '<input autocomplete="off" style="box-shadow: 0px 0px 3px grey;" type="text" id="modalAgregarDatosDelPacienteApyNom" class="form-control" placeholder="Apellido y nombre">
+                                <div id="resultadoPacientes"></div>';
+                                echo '
                             </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <small>Matricula</small>
-                                    <input autocomplete="off" style="box-shadow: 0px 0px 3px grey;" id="nuevoTurnoMedicoMatricula" type="text" placeholder="Matricula" class="form-control is-invalid">
-                                </div>
+                            <p><b>Ingresar nuevo solicitante:</b><p>
+                            <button type="button" class="btn btn-primary shadow">Nuevo paciente</button>
+                        </section>
+                    </div> 
+                    <div class="col shadow" style="background-color: rgb(246, 246, 246); padding: 2rem; border-radius: 1.5rem;">
+                        <section class="profesional">
+                            <p><b>Seleccionar profesional:</b><p>
+                            <div class="form-group">
+                                <p>Matricula</p>
+                                <input style="box-shadow: 0px 0px 3px grey;" type="text" id="nuevoTurnoMedicoMatricula"  placeholder="Matricula" style="text-aling: left;" class="form-control">                              
+                            </div>         
+                            <div class="form-group">
+                                <p>Médico:</p>
+                                <select style="box-shadow: 0px 0px 3px grey;" id="nuevoTurnoMedicoNombre" class="form-control custom-select">
+                                <option data-matricula="-" value="0">Seleccione médico</option>';
+                                $peticion = mysqli_query($veja, "SELECT id, apellido, nombre, codigo FROM medicos WHERE activo = 'true' ORDER BY apellido ASC");
+                                while($m = mysqli_fetch_assoc($peticion)){
+                                    echo '<option data-matricula="'.$m['codigo'].'" value="'.$m['id'].'">'.$m['apellido'].' '.$m['nombre'].'</option>';
+                                }
+                                echo '</select>
                             </div>
-                            <div class="col-8">
-                                <div class="form-group">
-                                    <small>Médico</small><br>
-                                    <select style="box-shadow: 0px 0px 3px grey;" id="nuevoTurnoMedicoNombre" class="form-control custom-select">
-                                        <option data-matricula="-" value="0">Seleccione médico</option>';
-                                        $peticion = mysqli_query($veja, "SELECT id, apellido, nombre, codigo FROM medicos WHERE activo = 'true' ORDER BY apellido ASC");
-                                        while($m = mysqli_fetch_assoc($peticion)){
-                                            echo '<option data-matricula="'.$m['codigo'].'" value="'.$m['id'].'">'.$m['apellido'].' '.$m['nombre'].'</option>';
-                                        }
-                                    echo '</select>
-                                </div>
-                            </div>
-                            <div class="col-12" id="detallesPacienteTurno"></div>
-                        </div>
-                    </div>
-                    <div class="col-9">
-                        <div class="row" id="contendedorCalendario">
-                            <div class="col-md-6">
-                                <div id="calendario"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div id="calendarioDetalles"></div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-3 shadow" style="background-color: rgb(246, 246, 246); padding: 2rem; margin-right: 2rem; margin-top: 2rem; border-radius: 1.5rem;">
+                        <p><b>Datos del paciente:</b><p>
+                        <section id="detallesPacienteTurno"class="detalle-paciente">
+                        </section> 
+                        <hr>
+                        <p><b>Solicitud turno:</b><p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Presencial
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Vía telefónica
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Vía Web
+                            </label>
+                        </div>
+                    </div>
+                    <div  class="col" id="contendedorCalendario" >
+                        <div class="row" style="widht: 100%; height: 100%;">
+                            <div class="col shadow" style="background-color: rgb(246, 246, 246); padding: 2rem; margin-top: 2rem; margin-right:2rem; border-radius: 1.5rem;" id="calendario" ></div>
+                            <div class="col shadow" style="background-color: rgb(246, 246, 246); padding: 2rem; margin-top: 2rem; border-radius: 1.5rem;" id="calendarioDetalles"></div>                          
+                        </div>
+                    </div>                          
+                </div>
+            </div>
+
+            
+
+                        
+
+             
+                        
+
+
+            
+
+                   
+                    
+   
 
 
 
